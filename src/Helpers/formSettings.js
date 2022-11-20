@@ -76,7 +76,7 @@ export const settings = [
     },
     {
       label: `Do you wanna tell us more about yourself?`,
-      name: "team",
+      name: "yourself",
       type: "textarea",
       isRequired: false,
       pattern: "/^[A-Za-z0-9. ]{5,100}$/",

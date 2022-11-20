@@ -5,12 +5,28 @@ import Page2 from "./Pages/Page2";
 import Page3 from "./Pages/Page3";
 import Button from "./Button/Button";
 import Progresbar from "./Progressbar/Progressbar";
-import { checkValidation } from "../Helpers/validation";
-
-const pages = [Page1, Page2, Page3];
 
 const Form = () => {
+  const pages = [Page1, Page2, Page3];
   const [page, setPage] = useState(0);
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: 0,
+    years: "",
+    availability: [],
+    framework: "",
+    finance: 0,
+    team: "",
+    yourself: "",
+  });
+  console.log(formData);
+
+  // const reducer = (state, { name, value }) => ({ ...state, [name]: value });
+  // const [state, dispatch] = useReducer(reducer, init);
+  // console.log(state);
 
   const handleNextButton = () => {
     return page < 2 ? setPage(page + 1) : null;
@@ -18,16 +34,29 @@ const Form = () => {
   const handlePrevButton = () => {
     return page <= 2 && page > 0 ? setPage(page - 1) : null;
   };
-  checkValidation();
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("OK");
   };
+  // Rozwiązanie do refaktoryzacji
+  const renderPages = (page) => {
+    switch (page) {
+      case 0:
+        return <Page1 formData={formData} setFormData={setFormData}></Page1>;
+      case 1:
+        return <Page2 formData={formData} setFormData={setFormData}></Page2>;
+      case 2:
+        return <Page3 formData={formData} setFormData={setFormData}></Page3>;
+      default:
+        return null;
+    }
+  };
+  // const Component = pages[page];
 
-  const Component = pages[page];
+  // console.log(typeof pages[page]);
   return (
     <div>
-      <Header>We're Waiting for your CV!</Header>
+      <Header>We're waiting for your CV!</Header>
       <Progresbar
         style={{
           width:
@@ -40,7 +69,7 @@ const Form = () => {
               : null,
         }}
       />
-      <Component />
+      {renderPages(page)}
       <Button disabled={page === 0 ? true : false} onClick={handlePrevButton}>
         Prev
       </Button>

@@ -3,7 +3,7 @@ import Form from "../Form/Form";
 import { settings } from "../../Helpers/formSettings";
 import Textarea from "../Textarea/Textarea";
 
-const Page3 = () => {
+const Page3 = ({ formData, setFormData }) => {
   return (
     <Form>
       {settings[2].map((item) => {
@@ -12,7 +12,13 @@ const Page3 = () => {
             <label htmlFor={item.name} key={item.name}>
               {item.label}
             </label>
-            <Textarea name={item.name}></Textarea>
+            <Textarea
+              value={formData[item.name]}
+              onChange={(e) =>
+                setFormData({ ...formData, [item.name]: e.target.value })
+              }
+              name={item.name}
+            ></Textarea>
           </>
         );
       })}

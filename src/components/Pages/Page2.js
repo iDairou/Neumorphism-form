@@ -2,24 +2,31 @@ import React from "react";
 import Form from "../Form/Form";
 import { settings } from "../../Helpers/formSettings";
 
-const Page2 = () => {
+const Page2 = ({ formData, setFormData }) => {
   const getRadioInputs = (item) => {
     return (
       <>
         <h3 key={item.name}>{item.label}</h3>
-        {item.options.map((opt) => {
-          return (
-            <label>
-              {opt}
-              <input
-                key={opt}
-                name={item.name}
-                type={item.type}
-                value={opt}
-              ></input>
-            </label>
-          );
-        })}
+        <div
+          key={item.label}
+          onChange={(e) =>
+            setFormData({ ...formData, [item.name]: e.target.value })
+          }
+        >
+          {item.options.map((opt) => {
+            return (
+              <>
+                <label>{opt}</label>
+                <input
+                  key={opt}
+                  name={item.name}
+                  type={item.type}
+                  value={opt}
+                />
+              </>
+            );
+          })}
+        </div>
       </>
     );
   };
@@ -27,14 +34,28 @@ const Page2 = () => {
     return (
       <>
         <h3 key={item.name}>{item.label}</h3>
-        {item.options.map((opt) => {
-          return (
-            <>
-              <input name={item.name} type={item.type}></input>
-              <label htmlFor={item.name}>{opt}</label>
-            </>
-          );
-        })}
+        <div
+          key={item.label}
+          onChange={(e) =>
+            setFormData({ ...formData, [item.name]: e.target.value })
+          }
+        >
+          {item.options.map((opt) => {
+            return (
+              <>
+                <label key={item.label} htmlFor={item.name}>
+                  {opt}
+                </label>
+                <input
+                  key={opt}
+                  name={item.name}
+                  type={item.type}
+                  value={opt}
+                ></input>
+              </>
+            );
+          })}
+        </div>
       </>
     );
   };
@@ -50,9 +71,9 @@ const Page2 = () => {
         }
         return (
           <>
-            <h3>
+            <h3 key={item.label}>
               {item.label}
-              <input type={item.type}></input>
+              <input key={item.name} type={item.type}></input>
             </h3>
           </>
         );

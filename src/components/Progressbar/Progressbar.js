@@ -9,7 +9,6 @@ const Progressbar = ({ style }) => {
       <StyledProgressbar>
         <StyledProgressbarLoaded style={style} />
       </StyledProgressbar>
-      ;
     </div>
   );
 };
