@@ -12,9 +12,12 @@ export const checkValidation = (state) => {
   getItemsToValidate().forEach(({ name, isRequired, pattern, error }) => {
     const value = state[name];
     if (isRequired) {
-      if (!pattern.test(value)) {
-        wrongValues.push(error);
+      if (pattern) {
+        if (!pattern.test(value)) {
+          wrongValues.push(error);
+        }
       }
+      
     }
   });
   return wrongValues;

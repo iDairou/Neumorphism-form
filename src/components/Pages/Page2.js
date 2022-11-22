@@ -37,7 +37,19 @@ const Page2 = ({ formData, setFormData }) => {
         <div
           key={item.label}
           onChange={(e) =>
-            setFormData({ ...formData, [item.name]: e.target.value })
+            {
+              const filteredArr = e.target.checked
+                ? [...formData.framework, e.target.value]
+                : [...formData.framework].filter(
+                    (value) => value !== e.target.value
+                  );
+              console.log(e);
+
+              setFormData({
+                ...formData,
+                [item.name]: filteredArr,
+              });
+            }
           }
         >
           {item.options.map((opt) => {

@@ -5,10 +5,12 @@ import Page2 from "./Pages/Page2";
 import Page3 from "./Pages/Page3";
 import Button from "./Button/Button";
 import Progresbar from "./Progressbar/Progressbar";
+import { checkValidation } from "../Helpers/validation";
 
 const Form = () => {
   const pages = [Page1, Page2, Page3];
   const [page, setPage] = useState(0);
+  const [errors, setErrors] = useState('')
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -16,13 +18,19 @@ const Form = () => {
     email: "",
     phone: 0,
     years: "",
-    availability: [],
-    framework: "",
+    availability: "",
+    framework: [],
     finance: 0,
     team: "",
     yourself: "",
   });
-  console.log(formData);
+  for (let i = 0 ; i < 6 ; i++) {
+    if ( i === 3 ) {
+    continue; }
+    if ( i === 5 ) {
+    break; }
+    console.log(i) }
+    
 
   // const reducer = (state, { name, value }) => ({ ...state, [name]: value });
   // const [state, dispatch] = useReducer(reducer, init);
@@ -36,9 +44,11 @@ const Form = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("OK");
+    const wrongValues = checkValidation(formData)
+    setErrors(wrongValues)
   };
   // Rozwiązanie do refaktoryzacji
+
   const renderPages = (page) => {
     switch (page) {
       case 0:
@@ -70,12 +80,13 @@ const Form = () => {
         }}
       />
       {renderPages(page)}
-      <Button disabled={page === 0 ? true : false} onClick={handlePrevButton}>
+      <Button   hidden={page === 0 ? true : false}  onClick={handlePrevButton}>
         Prev
       </Button>
 
       {page !== pages.length - 1 ? (
         <Button
+      
           disabled={page === pages.length - 1 ? true : false}
           onClick={handleNextButton}
         >
@@ -86,5 +97,5 @@ const Form = () => {
       )}
     </div>
   );
-};
+};;
 export default Form;
