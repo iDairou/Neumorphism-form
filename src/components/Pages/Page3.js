@@ -3,7 +3,7 @@ import Form from "../Form/Form";
 import { settings } from "../../Helpers/formSettings";
 import Textarea from "../Textarea/Textarea";
 
-const Page3 = ({ formData, setFormData }) => {
+const Page3 = ({ formData, setFormData, errors }) => {
   return (
     <Form>
       {settings[2].map((item) => {
@@ -19,6 +19,7 @@ const Page3 = ({ formData, setFormData }) => {
               }
               name={item.name}
             ></Textarea>
+            <p>{errors[item.error]}</p>
           </>
         );
       })}

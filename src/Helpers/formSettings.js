@@ -39,24 +39,30 @@ export const settings = [
       label: `What's your programming experience in years?`,
       name: "years",
       type: "radio",
+      isRequired: true,
       options: ["Less than 1 year", "1-2 years", "3-5 years", "Over 5 years"],
+      error: "One option must be selected.",
     },
     {
       label: "Availability",
       name: "availability",
       type: "radio",
+      isRequired: true,
       options: [
         "Currently available",
         "In 1 week",
         "In 1 month",
         "In 3 months",
       ],
+      error: "One option must be selected.",
     },
     {
       label: "What framework/library are you similiar with on front-end?",
       name: "framework",
+      isRequired: true,
       type: "checkbox",
       options: ["React", "Angular", "Vue"],
+      error: "Atleast one option must be selected.",
     },
 
     {
@@ -64,6 +70,7 @@ export const settings = [
       name: "finance",
       type: "number",
       isRequired: true,
+      error: "Pass on your salary expectations.",
     },
   ],
   [
@@ -73,6 +80,7 @@ export const settings = [
       type: "textarea",
       isRequired: true,
       pattern: "/^[A-Za-z0-9. ]{5,100}$/",
+      error: "Wrong data",
     },
     {
       label: `Do you wanna tell us more about yourself?`,
@@ -80,6 +88,7 @@ export const settings = [
       type: "textarea",
       isRequired: false,
       pattern: "/^[A-Za-z0-9. ]{5,100}$/",
+      error: "Wrong data",
     },
   ],
 ];
