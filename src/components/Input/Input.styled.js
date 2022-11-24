@@ -7,5 +7,8 @@ const StyledInput = styled.input`
   border-radius: 37px;
   box-shadow: inset 5px 5px 10px #7d7d7d, inset -5px -5px 10px #ffffff;
   align-self: center;
+  margin: 10px;
+  font-size: 15px;
+  margin-bottom: 25px;
 `;
 export default StyledInput;

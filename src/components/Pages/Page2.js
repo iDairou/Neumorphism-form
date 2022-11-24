@@ -18,6 +18,7 @@ const Page2 = ({ formData, setFormData, errors }) => {
               <>
                 <label>{opt}</label>
                 <input
+                  checked={formData[item.name] === opt}
                   key={opt}
                   name={item.name}
                   type={item.type}
@@ -32,6 +33,8 @@ const Page2 = ({ formData, setFormData, errors }) => {
     );
   };
   const getSelectInputs = (item) => {
+    console.log(formData[item.name]);
+
     return (
       <>
         <h3 key={item.name}>{item.label}</h3>
@@ -43,7 +46,6 @@ const Page2 = ({ formData, setFormData, errors }) => {
               : [...formData.framework].filter(
                   (value) => value !== e.target.value
                 );
-            console.log(filteredArr);
             setFormData({
               ...formData,
               [item.name]: filteredArr,
@@ -55,6 +57,7 @@ const Page2 = ({ formData, setFormData, errors }) => {
               <>
                 <label>{opt}</label>
                 <input
+                  checked={formData[item.name].includes(opt)}
                   key={opt}
                   name={item.name}
                   type={item.type}

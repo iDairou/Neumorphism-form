@@ -7,6 +7,7 @@ const StyledTextarea = styled.textarea`
   border-radius: 15px;
   border: 0;
   align-self: center;
+  padding: 15px;
   box-shadow: inset 5px 5px 10px #7d7d7d, inset -5px -5px 10px #ffffff;
 `;
 export default StyledTextarea;

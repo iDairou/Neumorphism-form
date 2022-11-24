@@ -18,11 +18,11 @@ const Form = () => {
     firstName: "",
     lastName: "",
     email: "",
-    phone: 0,
+    phone: "",
     years: "",
     availability: "",
     framework: [],
-    finance: 0,
+    finance: "",
     team: "",
     yourself: "",
   });
@@ -71,6 +71,7 @@ const Form = () => {
           formData={formData}
           setFormData={setFormData}
         />
+
         <Button hidden={page === 0 ? true : false} onClick={handlePrevButton}>
           Prev
         </Button>

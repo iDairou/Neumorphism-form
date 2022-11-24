@@ -13,13 +13,14 @@ const Page3 = ({ formData, setFormData, errors }) => {
               {item.label}
             </label>
             <Textarea
+              placeholder={item.placeholder}
               value={formData[item.name]}
               onChange={(e) =>
                 setFormData({ ...formData, [item.name]: e.target.value })
               }
               name={item.name}
             ></Textarea>
-            <p>{errors[item.error]}</p>
+            <p>{errors[item.name]}</p>
           </>
         );
       })}

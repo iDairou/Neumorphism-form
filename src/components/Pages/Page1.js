@@ -4,13 +4,15 @@ import Input from "../Input/Input";
 import { settings } from "../../Helpers/formSettings";
 
 const Page1 = ({ formData, setFormData, errors }) => {
-  console.log(errors);
+  console.log();
   return (
     <Form>
       {settings[0].map((item) => (
-        <label key={item.name}>
-          {item.label}
+        <>
+          <label key={item.name}>{item.label} </label>
           <Input
+            pattern={item.pattern}
+            placeholder={item.placeholder}
             name={item.name}
             onChange={(e) =>
               setFormData({ ...formData, [item.name]: e.target.value })
@@ -19,8 +21,8 @@ const Page1 = ({ formData, setFormData, errors }) => {
             required={item.isRequired}
             type={item.type}
           ></Input>
-          <div>{errors[item.name]}</div>
-        </label>
+          <p>{errors[item.name]}</p>
+        </>
       ))}
     </Form>
   );

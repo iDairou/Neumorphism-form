@@ -1,11 +1,14 @@
 import { createGlobalStyle } from "styled-components";
+
 const lightTheme = {
   backgroundColor: "#e3e3e3",
   textColor: "black",
+  containerBackground: "#ededed",
 };
 const darkTheme = {
   backgroundColor: "#292636",
   textColor: "#fff",
+  containerBackground: "#1c1830",
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -18,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
  background: ${(props) => props.theme.backgroundColor};
  color: ${(props) => props.theme.textColor};
  }
+ 
  #root{
     margin: 0 auto;
  }
