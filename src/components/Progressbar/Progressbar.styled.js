@@ -12,7 +12,7 @@ const StyledProgressbarLoaded = styled.div`
   height: 30px;
   box-shadow: inset 5px 5px 10px #7d7d7d, inset -5px -5px 10px black;
   border-radius: 15px;
-  background-color: #2dc532;
+  background: linear-gradient(to right, #0c0422, #304e7d);
 `;
 
 export { StyledProgressbar, StyledProgressbarLoaded };
