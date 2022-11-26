@@ -8,6 +8,7 @@ import Progresbar from "./Progressbar/Progressbar";
 import { validate } from "../Helpers/validation";
 import { settings } from "../Helpers/formSettings";
 import Container from "../Container/Container";
+import FinalPage from "./Pages/FinalPage";
 
 const Form = () => {
   const pages = [Page1, Page2, Page3];
@@ -18,21 +19,22 @@ const Form = () => {
     firstName: "",
     lastName: "",
     email: "",
-    phone: 0,
+    phone: "",
     years: "",
     availability: "",
     framework: [],
-    finance: 0,
+    finance: "",
     team: "",
     yourself: "",
   });
 
   const handleNextButton = () => {
-    const err = validate(settings[page], formData);
-    setErrors(err);
-    if (Object.keys(err).length === 0) {
-      return page < pages.length - 1 ? setPage(page + 1) : null;
-    }
+    // const err = validate(settings[page], formData);
+    // setErrors(err);
+    // if (Object.keys(err).length === 0) {
+
+    // }
+    return page < pages.length - 1 ? setPage(page + 1) : null;
   };
   const handlePrevButton = () => {
     return page <= pages.length - 1 && page > 0 ? setPage(page - 1) : null;
@@ -71,6 +73,7 @@ const Form = () => {
           formData={formData}
           setFormData={setFormData}
         />
+
         <Button hidden={page === 0 ? true : false} onClick={handlePrevButton}>
           Prev
         </Button>

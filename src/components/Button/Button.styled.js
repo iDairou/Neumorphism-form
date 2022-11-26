@@ -5,7 +5,9 @@ const StyledButton = styled.button`
   margin: 100px;
   padding: 10px;
   border: none;
+  color: ${(props) => props.theme.textColor};
   border-radius: 37px;
+  background: transparent;
   box-shadow: 5px 5px 10px #7d7d7d, -5px -5px 10px #ffffff;
   cursor: pointer;
   :active {

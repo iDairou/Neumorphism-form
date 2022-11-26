@@ -7,6 +7,7 @@ export const settings = [
       isRequired: true,
       pattern: /[a-zA-Z]{2,}/,
       error: "Wrong name",
+      placeholder: "Your first name...",
     },
     {
       label: "Last name",
@@ -15,6 +16,7 @@ export const settings = [
       isRequired: true,
       pattern: /[a-zA-Z]{2,}/,
       error: "Wrong surname!",
+      placeholder: "Your last name...",
     },
     {
       label: "Email",
@@ -23,14 +25,16 @@ export const settings = [
       isRequired: true,
       pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
       error: "Wrong email!",
+      placeholder: "Your email...",
     },
     {
       label: "Phone number",
       name: "phone",
       type: "tel",
       isRequired: true,
-      pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}",
+      pattern: /[0-9]{3}?[0-9]{3}?[0-9]{3}/,
       error: "Wrong phone number!",
+      placeholder: "Your phone number...",
     },
   ],
 
@@ -39,7 +43,8 @@ export const settings = [
       label: `What's your programming experience in years?`,
       name: "years",
       type: "radio",
-      isRequired: true,
+      isRequired: /[a-zA-Z]{2,}/,
+      pattern: /[a-zA-Z]{2,}/,
       options: ["Less than 1 year", "1-2 years", "3-5 years", "Over 5 years"],
       error: "One option must be selected.",
     },
@@ -47,7 +52,8 @@ export const settings = [
       label: "Availability",
       name: "availability",
       type: "radio",
-      isRequired: true,
+      isRequired: /[a-zA-Z]{2,}/,
+      pattern: /[a-zA-Z]{2,}/,
       options: [
         "Currently available",
         "In 1 week",
@@ -81,6 +87,7 @@ export const settings = [
       isRequired: true,
       pattern: "/^[A-Za-z0-9. ]{5,100}$/",
       error: "Wrong data",
+      placeholder: "Write here...",
     },
     {
       label: `Do you wanna tell us more about yourself?`,
@@ -89,6 +96,7 @@ export const settings = [
       isRequired: false,
       pattern: "/^[A-Za-z0-9. ]{5,100}$/",
       error: "Wrong data",
+      placeholder: "Tell us more about yourself...",
     },
   ],
 ];

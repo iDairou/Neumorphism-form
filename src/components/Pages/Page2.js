@@ -1,6 +1,9 @@
 import React from "react";
 import Form from "../Form/Form";
 import { settings } from "../../Helpers/formSettings";
+import RadioButton from "../InputRadio/RadioButton";
+import InputCheckbox from "../InputCheckbox/InputCheckbox";
+import InputText from "../InputText/Input";
 
 const Page2 = ({ formData, setFormData, errors }) => {
   const getRadioInputs = (item) => {
@@ -8,6 +11,7 @@ const Page2 = ({ formData, setFormData, errors }) => {
       <>
         <h3 key={item.name}>{item.label}</h3>
         <div
+          // style={} STYLE DLA RADIO
           key={item.label}
           onChange={(e) =>
             setFormData({ ...formData, [item.name]: e.target.value })
@@ -15,15 +19,14 @@ const Page2 = ({ formData, setFormData, errors }) => {
         >
           {item.options.map((opt) => {
             return (
-              <>
-                <label>{opt}</label>
-                <input
-                  key={opt}
-                  name={item.name}
-                  type={item.type}
-                  value={opt}
-                />
-              </>
+              <RadioButton
+                opt={opt}
+                checked={formData[item.name] === opt}
+                key={opt}
+                name={item.name}
+                type={item.type}
+                value={opt}
+              />
             );
           })}
         </div>
@@ -32,6 +35,8 @@ const Page2 = ({ formData, setFormData, errors }) => {
     );
   };
   const getSelectInputs = (item) => {
+    console.log(formData[item.name]);
+
     return (
       <>
         <h3 key={item.name}>{item.label}</h3>
@@ -43,7 +48,6 @@ const Page2 = ({ formData, setFormData, errors }) => {
               : [...formData.framework].filter(
                   (value) => value !== e.target.value
                 );
-            console.log(filteredArr);
             setFormData({
               ...formData,
               [item.name]: filteredArr,
@@ -53,13 +57,14 @@ const Page2 = ({ formData, setFormData, errors }) => {
           {item.options.map((opt) => {
             return (
               <>
-                <label>{opt}</label>
-                <input
+                <InputCheckbox
+                  opt={opt}
+                  checked={formData[item.name].includes(opt)}
                   key={opt}
                   name={item.name}
                   type={item.type}
                   value={opt}
-                ></input>
+                ></InputCheckbox>
               </>
             );
           })}
@@ -82,13 +87,13 @@ const Page2 = ({ formData, setFormData, errors }) => {
           <>
             <h3 key={item.label}>
               {item.label}
-              <input
+              <InputText
                 onChange={(e) =>
                   setFormData({ ...formData, [item.name]: e.target.value })
                 }
                 key={item.name}
                 type={item.type}
-              ></input>
+              ></InputText>
             </h3>
             <p>{errors[item.name]}</p>
           </>

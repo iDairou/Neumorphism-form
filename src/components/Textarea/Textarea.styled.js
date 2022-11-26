@@ -6,7 +6,10 @@ const StyledTextarea = styled.textarea`
   resize: vertical;
   border-radius: 15px;
   border: 0;
+  background: transparent;
+  color: ${(props) => props.theme.textColor};
   align-self: center;
-  box-shadow: inset 5px 5px 10px #7d7d7d, inset -5px -5px 10px #ffffff;
+  padding: 15px;
+  box-shadow: ${(props) => props.theme.textFieldShadow};
 `;
 export default StyledTextarea;
