@@ -6,7 +6,7 @@ export const settings = [
       type: "text",
       isRequired: true,
       pattern: /[a-zA-Z]{2,}/,
-      error: "Wrong name",
+      error: "Wrong name!",
       placeholder: "Your first name...",
     },
     {

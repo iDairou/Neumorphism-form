@@ -2,6 +2,7 @@ import React from "react";
 import Form from "../FormView/FormView";
 import InputText from "../InputText/Input";
 import { settings } from "../../Helpers/formSettings";
+import ErrorMessage from "../ErrorMessage/ErrorMassage";
 
 const Page1 = ({ formData, setFormData, errors }) => {
   console.log();
@@ -20,7 +21,7 @@ const Page1 = ({ formData, setFormData, errors }) => {
             required={item.isRequired}
             type={item.type}
           ></InputText>
-          <p>{errors[item.name]}</p>
+          <ErrorMessage>{errors[item.name]}</ErrorMessage>
         </>
       ))}
     </Form>
