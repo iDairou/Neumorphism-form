@@ -7,15 +7,15 @@ import Button from "./Button/Button";
 import Progresbar from "./Progressbar/Progressbar";
 import { validate } from "../Helpers/validation";
 import { settings } from "../Helpers/formSettings";
-import Container from "../Container/Container";
-import FinalPage from "./Pages/FinalPage";
+import Container from "./Container/Container";
+import FinalPage from "./Pages/FinalPage/FinalPage";
 
 const Form = () => {
-  const pages = [Page1, Page2, Page3];
+  const pages = [Page1, Page2, Page3, FinalPage];
   const [page, setPage] = useState(0);
   const [errors, setErrors] = useState({});
 
-  const [formData, setFormData] = useState({
+  const init = {
     firstName: "",
     lastName: "",
     email: "",
@@ -26,39 +26,45 @@ const Form = () => {
     finance: "",
     team: "",
     yourself: "",
-  });
+  };
+
+  const [formData, setFormData] = useState(init);
 
   const handleNextButton = () => {
-    // const err = validate(settings[page], formData);
-    // setErrors(err);
-    // if (Object.keys(err).length === 0) {
+    const err = validate(settings[page], formData);
+    setErrors(err);
 
-    // }
-    return page < pages.length - 1 ? setPage(page + 1) : null;
+    if (Object.keys(err).length === 0) {
+      return page < pages.length - 1 ? setPage(page + 1) : null;
+    }
   };
   const handlePrevButton = () => {
     return page <= pages.length - 1 && page > 0 ? setPage(page - 1) : null;
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    alert("Form sent succesfuly");
+    setFormData(init);
+    setPage(0);
   };
 
-  // Rozwiązanie do refaktoryzacji
-  // const renderPages = (page) => {
-  //   switch (page) {
-  //     case 0:
-  //       return <Page1 formData={formData} setFormData={setFormData}></Page1>;
-  //     case 1:
-  //       return <Page2 formData={formData} setFormData={setFormData}></Page2>;
-  //     case 2:
-  //       return <Page3 formData={formData} setFormData={setFormData}></Page3>;
-  //     default:
-  //       return null;
-  //   }
-  // };
+  // Do refaktoryzacji
+  const getFieldsName = () => {
+    const fields = [...settings[0], ...settings[1], ...settings[2]];
+    return fields;
+  };
+
+  const getStateValues = (name) => {
+    const values = [];
+    for (let [key, value] of Object.entries(formData)) {
+      if (name === key) {
+        values.push(value);
+      }
+    }
+    return values;
+  };
 
   const Component = pages[page];
-
   return (
     <div>
       <Header>We're waiting for your CV!</Header>
@@ -68,26 +74,41 @@ const Form = () => {
         }}
       />
       <Container>
-        <Component
-          errors={errors}
-          formData={formData}
-          setFormData={setFormData}
-        />
-
-        <Button hidden={page === 0 ? true : false} onClick={handlePrevButton}>
-          Prev
-        </Button>
-
         {page !== pages.length - 1 ? (
-          <Button
-            disabled={page === pages.length - 1 ? true : false}
-            onClick={handleNextButton}
-          >
-            Next
-          </Button>
+          <Component
+            errors={errors}
+            formData={formData}
+            setFormData={setFormData}
+          />
         ) : (
-          <Button onClick={handleSubmit}>Send</Button>
+          <Component>
+            <ul>
+              <li>
+                {getFieldsName().map((item) => (
+                  <p>
+                    {item.label}: {getStateValues(item.name)}
+                  </p>
+                ))}
+              </li>
+            </ul>
+          </Component>
         )}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Button hidden={page === 0 ? true : false} onClick={handlePrevButton}>
+            Prev
+          </Button>
+
+          {page !== pages.length - 1 ? (
+            <Button
+              disabled={page === pages.length - 1 ? true : false}
+              onClick={handleNextButton}
+            >
+              Next
+            </Button>
+          ) : (
+            <Button onClick={handleSubmit}>Send</Button>
+          )}
+        </div>
       </Container>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../Form/Form";
+import Form from "../FormView/FormView";
 import InputText from "../InputText/Input";
 import { settings } from "../../Helpers/formSettings";
 

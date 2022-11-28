@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../Form/Form";
+import Form from "../FormView/FormView";
 import { settings } from "../../Helpers/formSettings";
 import Textarea from "../Textarea/Textarea";
 
@@ -20,6 +20,7 @@ const Page3 = ({ formData, setFormData, errors }) => {
               }
               name={item.name}
             ></Textarea>
+            <p>{formData[item.name].length}/1000</p>
             <p>{errors[item.name]}</p>
           </>
         );

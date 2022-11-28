@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../Form/Form";
+import Form from "../FormView/FormView";
 import { settings } from "../../Helpers/formSettings";
 import RadioButton from "../InputRadio/RadioButton";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
@@ -34,7 +34,7 @@ const Page2 = ({ formData, setFormData, errors }) => {
       </>
     );
   };
-  const getSelectInputs = (item) => {
+  const getCheckboxInputs = (item) => {
     console.log(formData[item.name]);
 
     return (
@@ -58,9 +58,10 @@ const Page2 = ({ formData, setFormData, errors }) => {
             return (
               <>
                 <InputCheckbox
+                  onChange={() => console.log("change")}
                   opt={opt}
                   checked={formData[item.name].includes(opt)}
-                  key={opt}
+                  key={item.name}
                   name={item.name}
                   type={item.type}
                   value={opt}
@@ -81,18 +82,21 @@ const Page2 = ({ formData, setFormData, errors }) => {
           return getRadioInputs(item);
         }
         if (item.type === "checkbox") {
-          return getSelectInputs(item);
+          return getCheckboxInputs(item);
         }
         return (
           <>
             <h3 key={item.label}>
               {item.label}
               <InputText
+                placeholder={item.placeholder}
+                name={item.name}
                 onChange={(e) =>
                   setFormData({ ...formData, [item.name]: e.target.value })
                 }
                 key={item.name}
                 type={item.type}
+                value={formData[item.name]}
               ></InputText>
             </h3>
             <p>{errors[item.name]}</p>
