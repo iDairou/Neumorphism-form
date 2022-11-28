@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
   max-width: 1200px;
-  height: 70%;
   margin: auto;
   background: ${(props) => props.theme.containerBackground};
   border-radius: 20px;

@@ -4,6 +4,7 @@ import { settings } from "../../Helpers/formSettings";
 import RadioButton from "../InputRadio/RadioButton";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
 import InputText from "../InputText/Input";
+import ErrorMessage from "../ErrorMessage/ErrorMassage";
 
 const Page2 = ({ formData, setFormData, errors }) => {
   const getRadioInputs = (item) => {
@@ -30,7 +31,7 @@ const Page2 = ({ formData, setFormData, errors }) => {
             );
           })}
         </div>
-        {errors ? <p>{errors[item.name]}</p> : null}
+        {errors ? <ErrorMessage>{errors[item.name]}</ErrorMessage> : null}
       </>
     );
   };
@@ -70,7 +71,7 @@ const Page2 = ({ formData, setFormData, errors }) => {
             );
           })}
         </div>
-        <p>{errors[item.name]}</p>
+        <ErrorMessage>{errors[item.name]}</ErrorMessage>
       </>
     );
   };
@@ -99,7 +100,7 @@ const Page2 = ({ formData, setFormData, errors }) => {
                 value={formData[item.name]}
               ></InputText>
             </h3>
-            <p>{errors[item.name]}</p>
+            <ErrorMessage>{errors[item.name]}</ErrorMessage>
           </>
         );
       })}

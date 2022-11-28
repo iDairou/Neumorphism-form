@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledHeader = styled.header`
   text-align: center;
-  padding: 30px;
+  padding: 20px;
   width: 100%;
 `;
 

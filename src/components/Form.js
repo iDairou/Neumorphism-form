@@ -85,7 +85,7 @@ const Form = () => {
             <ul>
               <li>
                 {getFieldsName().map((item) => (
-                  <p>
+                  <p style={{ wordWrap: "break-word" }}>
                     {item.label}: {getStateValues(item.name)}
                   </p>
                 ))}
