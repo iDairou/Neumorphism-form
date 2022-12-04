@@ -9,6 +9,7 @@ import { validate } from "../Helpers/validation";
 import { settings } from "../Helpers/formSettings";
 import Container from "./Container/Container";
 import FinalPage from "./Pages/FinalPage/FinalPage";
+import ListItem from "./ListItem/ListItem";
 
 const Form = () => {
   const pages = [Page1, Page2, Page3, FinalPage];
@@ -61,6 +62,12 @@ const Form = () => {
         values.push(value);
       }
     }
+    console.log(Array.isArray(values[0]));
+
+    if (Array.isArray(values[0])) {
+      return values[0].join(", ");
+    }
+
     return values;
   };
 
@@ -82,15 +89,17 @@ const Form = () => {
           />
         ) : (
           <Component>
-            <ul>
-              <li>
-                {getFieldsName().map((item) => (
-                  <p style={{ wordWrap: "break-word" }}>
-                    {item.label}: {getStateValues(item.name)}
-                  </p>
-                ))}
-              </li>
-            </ul>
+            {getFieldsName().map((item) => (
+              <ListItem>
+                <p style={{ fontWeight: "bold", marginBottom: "5px" }}>
+                  {item.label}
+                </p>
+                <p style={{ marginBottom: "10px", wordBreak: "break-word" }}>
+                  {" "}
+                  {getStateValues(item.name)}
+                </p>
+              </ListItem>
+            ))}
           </Component>
         )}
         <div style={{ display: "flex", justifyContent: "center" }}>

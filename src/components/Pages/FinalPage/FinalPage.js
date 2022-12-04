@@ -1,11 +1,11 @@
 import React from "react";
-import StyledFinalPage from "./FinalPage.styled";
+import { StyledFinalPage, StyledUl, StyledH2 } from "./FinalPage.styled";
 
 const FinalPage = ({ children }) => {
   return (
     <StyledFinalPage>
-      <h2>Check your form</h2>
-      {children}
+      <StyledH2>Check your form</StyledH2>
+      <StyledUl>{children}</StyledUl>
     </StyledFinalPage>
   );
 };
