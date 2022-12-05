@@ -1,13 +1,13 @@
 import React from "react";
-import Form from "../Form/Form";
+import Form from "../FormView/FormView";
 import InputText from "../InputText/Input";
-import { settings } from "../../Helpers/formSettings";
+import ErrorMessage from "../ErrorMessage/ErrorMassage";
 
-const Page1 = ({ formData, setFormData, errors }) => {
+const Page1 = ({ formData, setFormData, errors, fields }) => {
   console.log();
   return (
     <Form>
-      {settings[0].map((item) => (
+      {fields.map((item) => (
         <>
           <label key={item.name}>{item.label} </label>
           <InputText
@@ -20,7 +20,7 @@ const Page1 = ({ formData, setFormData, errors }) => {
             required={item.isRequired}
             type={item.type}
           ></InputText>
-          <p>{errors[item.name]}</p>
+          <ErrorMessage>{errors[item.name]}</ErrorMessage>
         </>
       ))}
     </Form>

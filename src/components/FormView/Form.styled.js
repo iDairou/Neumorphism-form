@@ -5,6 +5,7 @@ const StyledForm = styled.form`
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
+  text-align: center;
 
   > label {
     margin: 10px;
@@ -12,6 +13,9 @@ const StyledForm = styled.form`
     font-weight: bold;
     width: 20%;
     margin: 0 auto;
+  }
+  > h3 {
+    margin: 12px;
   }
 `;
 export default StyledForm;

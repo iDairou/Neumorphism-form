@@ -7,6 +7,7 @@ const StyledInputCheckbox = styled.input`
   border: none;
   width: 30px;
   height: 30px;
+  margin-right: 30px;
   background: ${(props) => props.theme.radioBackground};
   box-shadow: ${(props) => props.theme.boxShadowBackground};
   transition: 0.3s;

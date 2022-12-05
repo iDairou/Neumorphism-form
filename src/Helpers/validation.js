@@ -1,8 +1,7 @@
 export const validate = (settings, values) => {
   const errors = {};
   settings.forEach(({ name, isRequired, error, pattern }) => {
-    const value = values[name].trim();
-    console.log(value, !pattern.test(value), pattern);
+    const value = values[name];
     if ((isRequired && value.length === 0 && pattern) || !pattern.test(value)) {
       errors[name] = error;
     }

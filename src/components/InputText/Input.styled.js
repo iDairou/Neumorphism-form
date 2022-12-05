@@ -11,6 +11,6 @@ const StyledInput = styled.input`
   margin: 10px;
   font-size: 15px;
   background: transparent;
-  margin-bottom: 25px;
+
 `;
 export default StyledInput;

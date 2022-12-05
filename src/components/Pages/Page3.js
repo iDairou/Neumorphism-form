@@ -1,12 +1,11 @@
 import React from "react";
-import Form from "../Form/Form";
-import { settings } from "../../Helpers/formSettings";
+import Form from "../FormView/FormView";
 import Textarea from "../Textarea/Textarea";
-
-const Page3 = ({ formData, setFormData, errors }) => {
+import ErrorMessage from "../ErrorMessage/ErrorMassage";
+const Page3 = ({ formData, setFormData, errors, fields }) => {
   return (
     <Form>
-      {settings[2].map((item) => {
+      {fields.map((item) => {
         return (
           <>
             <label htmlFor={item.name} key={item.name}>
@@ -20,7 +19,8 @@ const Page3 = ({ formData, setFormData, errors }) => {
               }
               name={item.name}
             ></Textarea>
-            <p>{errors[item.name]}</p>
+            <p>{formData[item.name].length}/500</p>
+            <ErrorMessage>{errors[item.name]}</ErrorMessage>
           </>
         );
       })}

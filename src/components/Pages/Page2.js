@@ -1,17 +1,16 @@
 import React from "react";
-import Form from "../Form/Form";
-import { settings } from "../../Helpers/formSettings";
+import Form from "../FormView/FormView";
 import RadioButton from "../InputRadio/RadioButton";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
 import InputText from "../InputText/Input";
+import ErrorMessage from "../ErrorMessage/ErrorMassage";
 
-const Page2 = ({ formData, setFormData, errors }) => {
+const Page2 = ({ formData, setFormData, errors, fields }) => {
   const getRadioInputs = (item) => {
     return (
       <>
         <h3 key={item.name}>{item.label}</h3>
         <div
-          // style={} STYLE DLA RADIO
           key={item.label}
           onChange={(e) =>
             setFormData({ ...formData, [item.name]: e.target.value })
@@ -30,13 +29,11 @@ const Page2 = ({ formData, setFormData, errors }) => {
             );
           })}
         </div>
-        {errors ? <p>{errors[item.name]}</p> : null}
+        {errors ? <ErrorMessage>{errors[item.name]}</ErrorMessage> : null}
       </>
     );
   };
-  const getSelectInputs = (item) => {
-    console.log(formData[item.name]);
-
+  const getCheckboxInputs = (item) => {
     return (
       <>
         <h3 key={item.name}>{item.label}</h3>
@@ -58,9 +55,10 @@ const Page2 = ({ formData, setFormData, errors }) => {
             return (
               <>
                 <InputCheckbox
+                  onChange={() => console.log("change")}
                   opt={opt}
                   checked={formData[item.name].includes(opt)}
-                  key={opt}
+                  key={item.name}
                   name={item.name}
                   type={item.type}
                   value={opt}
@@ -69,33 +67,36 @@ const Page2 = ({ formData, setFormData, errors }) => {
             );
           })}
         </div>
-        <p>{errors[item.name]}</p>
+        <ErrorMessage>{errors[item.name]}</ErrorMessage>
       </>
     );
   };
 
   return (
     <Form>
-      {settings[1].map((item) => {
+      {fields.map((item) => {
         if (item.type === "radio") {
           return getRadioInputs(item);
         }
         if (item.type === "checkbox") {
-          return getSelectInputs(item);
+          return getCheckboxInputs(item);
         }
         return (
           <>
             <h3 key={item.label}>
               {item.label}
               <InputText
+                placeholder={item.placeholder}
+                name={item.name}
                 onChange={(e) =>
                   setFormData({ ...formData, [item.name]: e.target.value })
                 }
                 key={item.name}
                 type={item.type}
+                value={formData[item.name]}
               ></InputText>
             </h3>
-            <p>{errors[item.name]}</p>
+            <ErrorMessage>{errors[item.name]}</ErrorMessage>
           </>
         );
       })}
