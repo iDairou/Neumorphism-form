@@ -1,12 +1,11 @@
 import React from "react";
 import Form from "../FormView/FormView";
-import { settings } from "../../Helpers/formSettings";
 import Textarea from "../Textarea/Textarea";
 import ErrorMessage from "../ErrorMessage/ErrorMassage";
-const Page3 = ({ formData, setFormData, errors }) => {
+const Page3 = ({ formData, setFormData, errors, fields }) => {
   return (
     <Form>
-      {settings[2].map((item) => {
+      {fields.map((item) => {
         return (
           <>
             <label htmlFor={item.name} key={item.name}>

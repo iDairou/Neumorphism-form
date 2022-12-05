@@ -70,56 +70,57 @@ const Form = () => {
 
     return values;
   };
+console.log(page);
+const Component = pages[page];
+return (
+  <div>
+    <Header>We're waiting for your CV!</Header>
+    <Progresbar
+      style={{
+        width: ((page + 1) / pages.length) * 100 + `%`,
+      }}
+    />
+    <Container>
+      {page !== pages.length - 1 ? (
+        <Component
+          fields={settings[page]}
+          errors={errors}
+          formData={formData}
+          setFormData={setFormData}
+        />
+      ) : (
+        <Component>
+          {getFieldsName().map((item) => (
+            <ListItem>
+              <p style={{ fontWeight: "bold", marginBottom: "5px" }}>
+                {item.label}
+              </p>
+              <p style={{ marginBottom: "10px", wordBreak: "break-word" }}>
+                {" "}
+                {getStateValues(item.name)}
+              </p>
+            </ListItem>
+          ))}
+        </Component>
+      )}
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Button hidden={page === 0 ? true : false} onClick={handlePrevButton}>
+          Prev
+        </Button>
 
-  const Component = pages[page];
-  return (
-    <div>
-      <Header>We're waiting for your CV!</Header>
-      <Progresbar
-        style={{
-          width: ((page + 1) / pages.length) * 100 + `%`,
-        }}
-      />
-      <Container>
         {page !== pages.length - 1 ? (
-          <Component
-            errors={errors}
-            formData={formData}
-            setFormData={setFormData}
-          />
-        ) : (
-          <Component>
-            {getFieldsName().map((item) => (
-              <ListItem>
-                <p style={{ fontWeight: "bold", marginBottom: "5px" }}>
-                  {item.label}
-                </p>
-                <p style={{ marginBottom: "10px", wordBreak: "break-word" }}>
-                  {" "}
-                  {getStateValues(item.name)}
-                </p>
-              </ListItem>
-            ))}
-          </Component>
-        )}
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button hidden={page === 0 ? true : false} onClick={handlePrevButton}>
-            Prev
+          <Button
+            disabled={page === pages.length - 1 ? true : false}
+            onClick={handleNextButton}
+          >
+            Next
           </Button>
-
-          {page !== pages.length - 1 ? (
-            <Button
-              disabled={page === pages.length - 1 ? true : false}
-              onClick={handleNextButton}
-            >
-              Next
-            </Button>
-          ) : (
-            <Button onClick={handleSubmit}>Send</Button>
-          )}
-        </div>
-      </Container>
-    </div>
-  );
+        ) : (
+          <Button onClick={handleSubmit}>Send</Button>
+        )}
+      </div>
+    </Container>
+  </div>
+);
 };;
 export default Form;

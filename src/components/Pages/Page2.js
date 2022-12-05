@@ -1,12 +1,11 @@
 import React from "react";
 import Form from "../FormView/FormView";
-import { settings } from "../../Helpers/formSettings";
 import RadioButton from "../InputRadio/RadioButton";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
 import InputText from "../InputText/Input";
 import ErrorMessage from "../ErrorMessage/ErrorMassage";
 
-const Page2 = ({ formData, setFormData, errors }) => {
+const Page2 = ({ formData, setFormData, errors, fields }) => {
   const getRadioInputs = (item) => {
     return (
       <>
@@ -78,7 +77,7 @@ const Page2 = ({ formData, setFormData, errors }) => {
 
   return (
     <Form>
-      {settings[1].map((item) => {
+      {fields.map((item) => {
         if (item.type === "radio") {
           return getRadioInputs(item);
         }
