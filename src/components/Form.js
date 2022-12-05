@@ -49,9 +49,8 @@ const Form = () => {
     setPage(0);
   };
 
-  // Do refaktoryzacji
   const getFieldsName = () => {
-    const fields = [...settings[0], ...settings[1], ...settings[2]];
+    const fields = settings.flat();
     return fields;
   };
 
@@ -62,7 +61,6 @@ const Form = () => {
         values.push(value);
       }
     }
-    console.log(Array.isArray(values[0]));
 
     if (Array.isArray(values[0])) {
       return values[0].join(", ");
@@ -70,7 +68,7 @@ const Form = () => {
 
     return values;
   };
-console.log(page);
+
 const Component = pages[page];
 return (
   <div>

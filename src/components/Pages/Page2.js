@@ -11,7 +11,6 @@ const Page2 = ({ formData, setFormData, errors, fields }) => {
       <>
         <h3 key={item.name}>{item.label}</h3>
         <div
-          // style={} STYLE DLA RADIO
           key={item.label}
           onChange={(e) =>
             setFormData({ ...formData, [item.name]: e.target.value })
@@ -35,8 +34,6 @@ const Page2 = ({ formData, setFormData, errors, fields }) => {
     );
   };
   const getCheckboxInputs = (item) => {
-    console.log(formData[item.name]);
-
     return (
       <>
         <h3 key={item.name}>{item.label}</h3>
