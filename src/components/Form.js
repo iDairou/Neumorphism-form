@@ -72,7 +72,7 @@ const Form = () => {
 const Component = pages[page];
 return (
   <div>
-    <Header>We're waiting for your CV!</Header>
+    <Header>We look forward to receiving your application!</Header>
     <Progresbar
       style={{
         width: ((page + 1) / pages.length) * 100 + `%`,
