@@ -1,5 +1,9 @@
 # Neumorphism form
 
+## Overview 🔍
+
+![](./src/animation/Animation.gif)
+
 ### Neumoporphism?
 
 Neumorphic design is a visual trend that has gained traction with UI/UX designers and become a popular aesthetic choice for contemporary software, websites, and mobile apps. To read more about check this acticle: https://hype4.academy/articles/design/neumorphism-in-user-interfaces. Also here you can check simply generator for UI css code: https://neumorphism.io/#e0e0e0
