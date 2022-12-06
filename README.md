@@ -13,8 +13,8 @@ The main goal of this project was to practice and improve skills building app wi
 - **Progression is visualised by a progress bar**
 - **Validation at every step of the form**
 - **Easily moving through steps, without losing entries**
-- **At the last stage we've summary page where you can check all your entries**
-   - **Form is generated from the array in /Helpers/formSettings. There you can see all the fields with specific pattern, errors or names. This solution allow's me to add some another fields if i wish without interruptin to deep js code**
+- **At the last stage, we have a summary page where you can check all your entries**
+   - **The form is generated from the array in /Helpers/formSettings. There you can see all the fields with specific patterns, errors, or names. This solution allows me to add some other fields if i wish without interrupting to deep js code**
 
 
 ## Built with 🔧
