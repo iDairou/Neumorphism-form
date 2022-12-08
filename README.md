@@ -6,10 +6,10 @@
 
 ### Neumoporphism?
 
-Neumorphic design is a visual trend that has gained traction with UI/UX designers and become a popular aesthetic choice for contemporary software, websites, and mobile apps. To read more about check this article: https://hype4.academy/articles/design/neumorphism-in-user-interfaces. Also here you can check simply generator for UI css code: https://neumorphism.io/#e0e0e0
+Neumorphic design is a visual trend that has gained traction with UI/UX designers and become a popular aesthetic choice for contemporary software, websites, and mobile apps. To read more about check this article: https://hype4.academy/articles/design/neumorphism-in-user-interfaces. Also here you can check simply generator for UI CSS code: https://neumorphism.io/#e0e0e0
 
 ### Project assumption:
-The main goal of this project was to practice and improve skills in building an app with a styled-components solution. It's a React-specific CSS-in-JS styling solution that creates a platform for developers to write actual CSS code to style React components.
+The main goal of this project was to practice and improve skills in building an app with a **styled-components** solution. It's a React-specific CSS-in-JS styling solution that creates a platform for developers to write actual CSS code to style React components.
 
 ### Features:
 
