@@ -18,7 +18,7 @@ The main goal of this project was to practice and improve skills in building an 
 - **Validation at every step of the form**
 - **Easily moving through steps, without losing entries**
 - **At the last stage, we have a summary page where you can check all your entries**
-   - **The form is generated from the array in [formSettings](https://github.com/iDairou/Neumorphism-form/blob/main/src/Helpers/formSettings.js). There you can see all the fields with specific patterns, errors, or names. This solution allows me to add some other fields without interrupting deep JS code**
+   - **The form is generated from the array in [formSettings.js](https://github.com/iDairou/Neumorphism-form/blob/main/src/Helpers/formSettings.js). There you can see all the fields with specific patterns, errors, or names. This solution allows me to add some other fields without interrupting deep JS code**
 
 
 ## Built with 🔧
