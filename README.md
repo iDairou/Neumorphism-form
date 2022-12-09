@@ -1,20 +1,24 @@
 # Neumorphism form
 
+## Overview 🔍
+
+![](./src/animation/Animation.gif)
+
 ### Neumoporphism?
 
-Neumorphic design is a visual trend that has gained traction with UI/UX designers and become a popular aesthetic choice for contemporary software, websites, and mobile apps. To read more about check this acticle: https://hype4.academy/articles/design/neumorphism-in-user-interfaces. Also here you can check simply generator for UI css code: https://neumorphism.io/#e0e0e0
+Neumorphic design is a visual trend that has gained traction with UI/UX designers and become a popular aesthetic choice for contemporary software, websites, and mobile apps. To read more about check this article: https://hype4.academy/articles/design/neumorphism-in-user-interfaces. Also here you can check simply generator for UI CSS code: https://neumorphism.io/#e0e0e0
 
 ### Project assumption:
-The main goal of this project was to practice and improve skills building app with styled-components solution. It's a React-specific CSS-in-JS styling solution that creates a platform for developers to write actual CSS code to style React components.
+The main goal of this project was to practice and improve skills in building an app with a **styled-components** solution. It's a React-specific CSS-in-JS styling solution that creates a platform for developers to write actual CSS code to style React components.
 
 ### Features:
 
 - **Neumorphic design**
-- **Progression is visualised by a progress bar**
+- **Progression is visualized by a progress bar**
 - **Validation at every step of the form**
 - **Easily moving through steps, without losing entries**
 - **At the last stage, we have a summary page where you can check all your entries**
-   - **The form is generated from the array in /Helpers/formSettings. There you can see all the fields with specific patterns, errors, or names. This solution allows me to add some other fields if i wish without interrupting to deep js code**
+   - **The form is generated from the array in [formSettings.js](https://github.com/iDairou/Neumorphism-form/blob/main/src/Helpers/formSettings.js). There you can see all the fields with specific patterns, errors, or names. This solution allows me to add some other fields without interrupting deep JS code**
 
 
 ## Built with 🔧
